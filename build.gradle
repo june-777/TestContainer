@@ -12,6 +12,23 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // Test Container
+    testImplementation "org.testcontainers:testcontainers:1.19.7"
+    testImplementation "org.testcontainers:mysql:1.19.7"
+    testImplementation "org.testcontainers:junit-jupiter:1.19.7"
+
+    // Lombok
+    testCompileOnly 'org.projectlombok:lombok:1.18.22' //테스트 환경에서 주입
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'	//테스트환경의 어노테이션 주입
+
+    // Logging
+    implementation 'org.slf4j:slf4j-api:2.0.7'
+    testImplementation 'org.slf4j:slf4j-api:2.0.7'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.7'   // TestContainer 환경에서 [No SLF4J providers were found] 오류 해결 위함
+
+    // Database
+    implementation 'mysql:mysql-connector-java:8.0.33'
 }
 
 test {
