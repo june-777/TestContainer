@@ -11,6 +11,7 @@
 - MySQL module: 1.19.7
 
 #### etc
+- Java: 17
 - Spring-Boot: 3.2.1
 - Spring Data Jpa
 - Mysql: 8
