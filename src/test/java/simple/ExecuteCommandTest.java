@@ -1,3 +1,5 @@
+package simple;
+
 import static org.assertj.core.api.Assertions.*;
 import static org.testcontainers.containers.Container.*;
 

@@ -1,4 +1,4 @@
-import static org.assertj.core.api.Assertions.*;
+package simple;
 
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.MySQLContainer;
@@ -10,31 +10,13 @@ import lombok.extern.slf4j.Slf4j;
 
 @Testcontainers
 @Slf4j
-public class MySQLContainerTest {
+public class SimpleCreateMySQLContainerTest {
 
 	@Container
-	static MySQLContainer<?> mysql = new MySQLContainer<>(DockerImageName.parse("mysql:8"))
-			.withDatabaseName("ludo-test")
-			.withUsername("root")
-			.withPassword("1234")
-			.withCommand("--collation-server=utf8mb4_unicode_ci",
-					"--character-set-server=utf8mb4"
-			)
-			.withEnv("MYSQL_ROOT_PASSWORD", "root")
-			.withEnv("MYSQL_DATABASE", "ludo")
-			.withEnv("MYSQL_ALLOW_EMPTY_PASSWORD", "yes");
+	MySQLContainer<?> mysql = new MySQLContainer<>(DockerImageName.parse("mysql:8"));
 
 	@Test
-	void test() {
-		loggingContainerInfo();
-
-		assertThat(mysql.getDatabaseName()).isEqualTo("ludo-test");
-		assertThat(mysql.getUsername()).isEqualTo("root");
-		assertThat(mysql.getPassword()).isEqualTo("1234");
-		assertThat(mysql.getCommandParts()).hasSize(2);
-	}
-
-	void loggingContainerInfo() {
+	void simpleCreateDockerTest() {
 		log.info("===== container basic info =====");
 		log.info("컨테이너 이름 = {}", mysql.getContainerName());
 		log.info("컨테이너 ID = {}", mysql.getContainerId());
@@ -48,4 +30,5 @@ public class MySQLContainerTest {
 		log.info("MySQL 유저 이름 = {}", mysql.getUsername());
 		log.info("MySQL 비밀번호 = {}", mysql.getPassword());
 	}
+
 }
