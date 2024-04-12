@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Testcontainers
 @Slf4j
-public class CreateMySQLContainerTest {
+public class SimpleCreateMySQLContainerTest {
 
 	@Container
 	MySQLContainer<?> mysql = new MySQLContainer<>(DockerImageName.parse("mysql:8"));
