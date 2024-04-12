@@ -29,6 +29,9 @@ dependencies {
 
     // Database
     implementation 'mysql:mysql-connector-java:8.0.33'
+
+    // Test
+    testImplementation("org.assertj:assertj-core:3.22.0")
 }
 
 test {
