@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '3.2.1'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'helloworld'
@@ -10,6 +12,9 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
@@ -25,7 +30,9 @@ dependencies {
     // Logging
     implementation 'org.slf4j:slf4j-api:2.0.7'
     testImplementation 'org.slf4j:slf4j-api:2.0.7'
-    testImplementation 'org.slf4j:slf4j-simple:2.0.7'   // TestContainer 환경에서 [No SLF4J providers were found] 오류 해결 위함
+    // 순수 자바기반 TestContainer 환경에서 [No SLF4J providers were found] 오류 해결 위함
+    // Spring-boot 사용 시 제거
+    // testImplementation 'org.slf4j:slf4j-simple:2.0.7'
 
     // Database
     implementation 'mysql:mysql-connector-java:8.0.33'
