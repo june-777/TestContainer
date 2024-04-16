@@ -14,7 +14,6 @@ import helloworld.domain.Recruitment;
 import helloworld.repository.RecruitmentRepository;
 
 @SpringBootTest
-@ExtendWith(MySQLTestContainer.class)
 class RecruitmentServiceTest {
 
 	@Autowired
